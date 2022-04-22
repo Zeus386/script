@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         Tekz Pixel Bot v2.0.5
-// @namespace    https://github.com/t3knical/rplace
+// @name         zeus386
+// @namespace    https://github.com/Zeus386/script
 // @version      2.0.5
 // @description  overlay for r/place, For Pepe+Canada+Alliance!
 // @author       Sir Teknical
@@ -11,8 +11,8 @@
 // @resource     TOASTIFY_CSS https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
-// @updateURL    https://zeus386.github.iot3knical/rplace/raw/main/Templates/Pepe/Pepe.Script.user.js
-// @downloadURL  https://github.com/t3knical/rplace/raw/main/Templates/Pepe/Pepe.Script.user.js
+// @updateURL    https://github.com/Zeus386/script/raw/main/Pepe.Script.user.js
+// @downloadURL  https://github.com/Zeus386/script/raw/main/Pepe.Script.user.js
 // ==/UserScript==
 
 // dialog DIV
@@ -152,9 +152,6 @@ var rgbaCanvas = undefined;
 var currentPlaceCanvas = undefined;
 
 var cnc_url0 = 'https://raw.githubusercontent.com/Zeus386/script/main/fondo_png_500x500_by_smallinthisworld_d6ynwpe-fullview.png';
-var cnc_url1 = 'https://raw.githubusercontent.com/t3knical/rplace/main/Templates/Canada/full_canvas_template_canada_full.png';
-var cnc_url2 = 'https://raw.githubusercontent.com/t3knical/rplace/main/Templates/Canada/full_canvas_template_just_animes.png';
-var cnc_url3 = 'https://raw.githubusercontent.com/t3knical/rplace/main/Templates/Canada/full_canvas_template_with_allies.png';
 
 function rgbToHex(r, g, b) {
     return (
