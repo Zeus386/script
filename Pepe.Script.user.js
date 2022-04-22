@@ -151,7 +151,7 @@ var rgbaCanvas = undefined;
 
 var currentPlaceCanvas = undefined;
 
-var cnc_url0 = 'https://raw.githubusercontent.com/t3knical/rplace/main/Templates/Pepe/full_canvas_template_pepe.png';
+var cnc_url0 = 'https://raw.githubusercontent.com/Zeus386/script/main/fondo_png_500x500_by_smallinthisworld_d6ynwpe-fullview.png';
 var cnc_url1 = 'https://raw.githubusercontent.com/t3knical/rplace/main/Templates/Canada/full_canvas_template_canada_full.png';
 var cnc_url2 = 'https://raw.githubusercontent.com/t3knical/rplace/main/Templates/Canada/full_canvas_template_just_animes.png';
 var cnc_url3 = 'https://raw.githubusercontent.com/t3knical/rplace/main/Templates/Canada/full_canvas_template_with_allies.png';
@@ -289,28 +289,28 @@ let getPendingWork = (work, rgbaOrder, rgbaCanvas) => {
 
     currentPlaceCanvas = document.createElement('CANVAS');
 
-    currentOrderCanvas0.width = 2000
-    currentOrderCanvas0.height = 2000
+    currentOrderCanvas0.width = 500
+    currentOrderCanvas0.height = 500
     currentOrderCanvas0.style.display = 'none'
     currentOrderCanvas0 = document.body.appendChild(currentOrderCanvas0)
 
-    currentOrderCanvas1.width = 2000
-    currentOrderCanvas1.height = 2000
+    currentOrderCanvas1.width = 500
+    currentOrderCanvas1.height = 500
     currentOrderCanvas1.style.display = 'none'
     currentOrderCanvas1 = document.body.appendChild(currentOrderCanvas1)
 
-    currentOrderCanvas2.width = 2000
-    currentOrderCanvas2.height = 2000
+    currentOrderCanvas2.width = 500
+    currentOrderCanvas2.height = 500
     currentOrderCanvas2.style.display = 'none'
     currentOrderCanvas2 = document.body.appendChild(currentOrderCanvas2)
 
-    currentOrderCanvas3.width = 2000
-    currentOrderCanvas3.height = 2000
+    currentOrderCanvas3.width = 500
+    currentOrderCanvas3.height = 500
     currentOrderCanvas3.style.display = 'none'
     currentOrderCanvas3 = document.body.appendChild(currentOrderCanvas3)
 
-    currentPlaceCanvas.width = 2000
-    currentPlaceCanvas.height = 2000
+    currentPlaceCanvas.width = 500
+    currentPlaceCanvas.height = 500
     currentPlaceCanvas.style.display = 'none'
     currentPlaceCanvas = document.body.appendChild(currentPlaceCanvas)
 
@@ -339,28 +339,28 @@ let getPendingWork = (work, rgbaOrder, rgbaCanvas) => {
     pos();
 
     currentOrderCtx0 = await getCanvasFromUrl(cnc_url0, currentOrderCanvas0, 0, 0, true,)
-    order0 = getRealWork(currentOrderCtx0.getImageData(0, 0, 2000, 2000).data)
+    order0 = getRealWork(currentOrderCtx0.getImageData(0, 0, 500, 500).data)
     Toastify({
         text: `Done getting template1 from github, ${order0.length} pixels in total...`,
         duration: DEFAULT_TOAST_DURATION_MS,
     }).showToast()
 
     currentOrderCtx1 = await getCanvasFromUrl(cnc_url1, currentOrderCanvas1, 0, 0, true,)
-    order1 = getRealWork(currentOrderCtx1.getImageData(0, 0, 2000, 2000).data)
+    order1 = getRealWork(currentOrderCtx1.getImageData(0, 0, 500, 500).data)
     Toastify({
         text: `Done getting template2 from github, ${order1.length} pixels in total...`,
         duration: DEFAULT_TOAST_DURATION_MS,
     }).showToast()
 
     currentOrderCtx2 = await getCanvasFromUrl(cnc_url2, currentOrderCanvas2, 0, 0, true,)
-    order2 = getRealWork(currentOrderCtx2.getImageData(0, 0, 2000, 2000).data)
+    order2 = getRealWork(currentOrderCtx2.getImageData(0, 0, 500, 500).data)
     Toastify({
         text: `Done getting template3 from github, ${order2.length} pixels in total...`,
         duration: DEFAULT_TOAST_DURATION_MS,
     }).showToast()
 
     currentOrderCtx3 = await getCanvasFromUrl(cnc_url3, currentOrderCanvas3, 0, 0, true,)
-    order3 = getRealWork(currentOrderCtx3.getImageData(0, 0, 2000, 2000).data)
+    order3 = getRealWork(currentOrderCtx3.getImageData(0, 0, 500, 500).data)
     Toastify({
         text: `Done getting template4 from github, ${order3.length} pixels in total...`,
         duration: DEFAULT_TOAST_DURATION_MS,
@@ -375,10 +375,10 @@ async function attemptPlace() {
         return
     }
     if (rgbaOrder0 == undefined || rgbaOrder1 == undefined || rgbaOrder2 == undefined || rgbaOrder3 == undefined) {
-        rgbaOrder0 = currentOrderCtx0.getImageData(0, 0, 2000, 2000).data
-        rgbaOrder1 = currentOrderCtx1.getImageData(0, 0, 2000, 2000).data
-        rgbaOrder2 = currentOrderCtx2.getImageData(0, 0, 2000, 2000).data
-        rgbaOrder3 = currentOrderCtx3.getImageData(0, 0, 2000, 2000).data
+        rgbaOrder0 = currentOrderCtx0.getImageData(0, 0, 500, 500).data
+        rgbaOrder1 = currentOrderCtx1.getImageData(0, 0, 500, 500).data
+        rgbaOrder2 = currentOrderCtx2.getImageData(0, 0, 500, 500).data
+        rgbaOrder3 = currentOrderCtx3.getImageData(0, 0, 500, 500).data
         setTimeout(attemptPlace, 1000) // probeer opnieuw in 2sec.
         return
     }
@@ -404,7 +404,7 @@ async function attemptPlace() {
     }
 
     if (CD <= Date.now()) {
-        rgbaCanvas = ctx1.getImageData(0, 0, 2000, 2000).data
+        rgbaCanvas = ctx1.getImageData(0, 0, 500, 500).data
         work0 = getPendingWork(order0, rgbaOrder0, rgbaCanvas)
 
         if (work0.length === 0) {
@@ -441,8 +441,8 @@ async function attemptPlace() {
             workRemaining = work0.length
             idx = Math.floor(Math.random() * work0.length)
             i = work0[idx]
-            x1 = i % 2000
-            y1 = Math.floor(i / 2000)
+            x1 = i % 500
+            y1 = Math.floor(i / 500)
             hex = rgbaOrderToHex(i, rgbaOrder0)
             document.getElementById('currentTemplate').textContent = `Template 1 - ${percentComplete}% Complete!`;
             document.getElementById('lastPlacedPixel').textContent = `${x1}, ${y1}`;
@@ -453,8 +453,8 @@ async function attemptPlace() {
             workRemaining = work1.length
             idx = Math.floor(Math.random() * work1.length)
             i = work1[idx]
-            x1 = i % 2000
-            y1 = Math.floor(i / 2000)
+            x1 = i % 500
+            y1 = Math.floor(i / 500)
             hex = rgbaOrderToHex(i, rgbaOrder1)
             document.getElementById('currentTemplate').textContent = `Template 2 - ${percentComplete}% Complete!`;
             document.getElementById('lastPlacedPixel').textContent = `${x1}, ${y1}`;
@@ -465,8 +465,8 @@ async function attemptPlace() {
             workRemaining = work2.length
             idx = Math.floor(Math.random() * work2.length)
             i = work2[idx]
-            x1 = i % 2000
-            y1 = Math.floor(i / 2000)
+            x1 = i % 500
+            y1 = Math.floor(i / 500)
             hex = rgbaOrderToHex(i, rgbaOrder2)
             document.getElementById('currentTemplate').textContent = `Template 3 - ${percentComplete}% Complete!`;
             document.getElementById('lastPlacedPixel').textContent = `${x1}, ${y1}`;
@@ -477,8 +477,8 @@ async function attemptPlace() {
             workRemaining = work3.length
             idx = Math.floor(Math.random() * work3.length)
             i = work3[idx]
-            x1 = i % 2000
-            y1 = Math.floor(i / 2000)
+            x1 = i % 500
+            y1 = Math.floor(i / 500)
             hex = rgbaOrderToHex(i, rgbaOrder3)
             document.getElementById('currentTemplate').textContent = `Template 4 - ${percentComplete}% Complete!`;
             document.getElementById('lastPlacedPixel').textContent = `${x1}, ${y1}`;
